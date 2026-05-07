@@ -4,19 +4,20 @@ import Action from "../../components/Activegroups";
 
 function Dashboard() {
   return (
-    <div className="min-h-screen min-w-7xl md:p-10 font-sans m-5 ">
-   <Cardstate/>
-<div className=" lg:flex-row gap-10 mt-10">
-      <div className="flex">
-        <Action />
+    <div className="h-screen w-full bg-[#020d0c] overflow-hidden p-6 lg:p-10 font-sans">
+      <div className="shrink-0">
+        <Cardstate />
       </div>
-      <div className="">
-        <Mynotes />
+
+      <div className="  lg:flex-row gap-8 min-h-0 mt-2">
+        <div className="">
+          <Action />
+        </div>
+
+        <div className="overflow-y-auto pr-2 custom-scrollbar">
+          <Mynotes />
+        </div>
       </div>
-      
-  
-    </div>
- 
     </div>
   );
 }

@@ -3,15 +3,15 @@ import add from "../ficture/plus-sign.png";
 
 function Savednote({ notes = [], onDelete, onOpen,onAdd }) {
   return (
-    <div className="w-100 h-screen bg-gray-50 border-r border-gray-200 flex flex-col">
+    <div className="w-100 h-screen bg-slate-800 border-r border-gray-200 flex flex-col">
       <header className="p-6 border-b border-gray-100">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-slate-800">My Notes</h2>
+          <h2 className="text-2xl font-bold text-slate-300">My Notes</h2>
           <img
             src={add}
             alt="add"
             onClick={onAdd}
-            className="w-10 h-10 p-2 border-2 border-violet-200 rounded-full bg-white cursor-pointer hover:bg-violet-50 transition-all active:scale-90"
+            className="w-10 h-10 p-2 rounded-full bg-black cursor-pointer hover:bg-violet-50 transition-all active:scale-90"
           />
         </div>
         <div className="relative flex items-center w-full">
@@ -24,7 +24,7 @@ function Savednote({ notes = [], onDelete, onOpen,onAdd }) {
           <input
             type="text"
             placeholder="Search notes..."
-            className="w-full bg-gray-100 rounded-2xl py-3 pl-12 pr-4 text-sm border border-transparent focus:bg-white focus:ring-2 focus:ring-indigo-100 transition-all outline-none"
+            className="w-full bg-black rounded-2xl py-3 pl-12 pr-4 text-sm text-slate-300 border border-transparent focus:bg-black focus:ring-2 focus:ring-indigo-100 transition-all outline-none"
           />
         </div>
       </header>

@@ -29,7 +29,7 @@ function Notes() {
     setTitel("");
     setContent("");
   };
-const openNote = (note) => {
+  const openNote = (note) => {
     setTitel(note.title);
     setContent(note.content);
   };
@@ -38,57 +38,71 @@ const openNote = (note) => {
   };
 
   return (
-    <div className="flex">
-      <Savednote notes={noteslist} onDelete={deletNote} onOpen={openNote} onAdd={handAdd} />
+    <div className="flex h-screen overflow-hidden bg-slate-800">
+      <Savednote
+        notes={noteslist}
+        onDelete={deletNote}
+        onOpen={openNote}
+        onAdd={handAdd}
+      />
 
-      <div className="flex flex-col">
-        <header>
-          <div className="flex justify-between w-7xl p-4 border-b border-gray-200 bg-gray-50">
-            <div className="flex items-center gap-4 px-4">
-              <img src={letter} alt="B" className="w-8 h-8 object-contain " />
-              <img src={italic} alt="I" className="w-8 h-8 object-contain " />
-              <img src={list} alt="List" className="w-8 h-8 object-contain " />
+      <div className="flex-1 flex flex-col h-full ">
+        <header className="p-4 border-b border-gray-200 bg-slate-700 flex justify-between items-center">
+          <div className="flex items-center gap-4 px-4">
+            <img
+              src={letter}
+              alt="B"
+              className="w-6 h-6 cursor-pointer hover:opacity-70"
+            />
+            <img
+              src={italic}
+              alt="I"
+              className="w-6 h-6 cursor-pointer hover:opacity-70"
+            />
+            <img
+              src={list}
+              alt="List"
+              className="w-6 h-6 cursor-pointer hover:opacity-70"
+            />
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 px-5 py-2 rounded-full bg-gray-200 cursor-pointer hover:bg-gray-300 transition-all text-sm font-medium">
+              <img src={share} alt="share" className="w-4 h-4" />
+              <span>Share</span>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-200 cursor-pointer hover:bg-gray-300">
-                <img src={share} alt="share" className="w-4 h-4" />
-                <p className="text-gray-700 font-medium text-sm">Share</p>
-              </div>
-
-              <button
-                onClick={handSave}
-                className="flex items-center gap-2 px-6 py-2 rounded-full bg-indigo-700 hover:bg-indigo-800 transition-all shadow-md active:scale-95"
-              >
-                <img
-                  src={plane}
-                  alt="plane"
-                  className="w-4 h-4 object-contain invert brightness-0"
-                />
-                <p className="text-white font-medium text-sm">Save</p>
-              </button>
-            </div>
+            <button
+              onClick={handSave}
+              className="flex items-center gap-2 px-6 py-2 rounded-full bg-indigo-700 hover:bg-indigo-800 text-white text-sm font-medium transition-all shadow-md active:scale-95"
+            >
+              <img
+                src={plane}
+                alt="plane"
+                className="w-4 h-4 invert brightness-0"
+              />
+              <span>Save</span>
+            </button>
           </div>
         </header>
 
-        <div className="flex-1 flex flex-col p-10 lg:p-20 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto p-10 lg:p-16 max-w-5xl mx-auto w-full flex flex-col">
           <input
             type="text"
             placeholder="Title"
             value={title}
             onChange={(e) => setTitel(e.target.value)}
-            className="text-5xl font-bold text-slate-800 outline-none mb-6 placeholder:text-slate-200 w-full"
+            className="text-5xl font-bold text-slate-800 outline-none mb-8 placeholder:text-slate-100 w-full bg-transparent"
           />
           <textarea
             placeholder="Start writing your notes here..."
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="flex-1 text-slate-500 text-xl leading-relaxed outline-none resize-none placeholder:text-slate-200 w-full"
+            className="flex-1 text-slate-500 text-xl leading-relaxed outline-none resize-none placeholder:text-slate-100 w-full bg-transparent"
           ></textarea>
         </div>
       </div>
     </div>
-    
   );
 }
 
